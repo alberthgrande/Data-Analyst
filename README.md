@@ -50,3 +50,87 @@ Work entirely inside `~/projects/Data Analyst`, then sync back to shared storage
 
 Android shared storage (`/storage/emulated/0`) is not a real Linux filesystem, so tools like Git, npm, Python venvs, etc. often break there.
 
+That means Git is still receiving either:
+
+* your normal GitHub password
+* or an incorrect/expired token
+
+Make sure you are using the PAT token itself as the password.
+
+Do this carefully:
+
+1. Generate a new token from:
+
+[GitHub Token Settings](https://github.com/settings/tokens?utm_source=chatgpt.com)
+
+Choose:
+
+* **Generate new token (classic)**
+* Enable:
+
+  * `repo`
+
+Copy the token immediately.
+
+It looks like:
+
+```text
+ghp_xxxxxxxxxxxxxxxxxxxx
+```
+
+2. Clear old cached credentials in Termux
+
+```bash
+git config --global --unset credential.helper
+rm ~/.git-credentials
+```
+
+3. Configure credential storage again
+
+```bash
+git config --global credential.helper store
+```
+
+4. Push again
+
+```bash
+git push -u origin master
+```
+
+5. IMPORTANT
+
+When it asks:
+
+```text
+Password for 'https://alberthgrande@github.com':
+```
+
+Paste the PAT token, NOT your GitHub password.
+
+In Termux, pasted text will not show characters. That's normal.
+
+Then press Enter.
+
+If it still fails, test using the token directly in URL form:
+
+```bash
+git remote set-url origin https://YOUR_TOKEN@github.com/alberthgrande/Data-Analyst.git
+```
+
+Example:
+
+```bash
+git remote set-url origin https://ghp_xxxxxxxx@github.com/alberthgrande/Data-Analyst.git
+```
+
+Then:
+
+```bash
+git push -u origin master
+```
+
+After successful push, remove token from remote for security:
+
+```bash
+git remote set-url origin https://github.com/alberthgrande/Data-Analyst.git
+```
