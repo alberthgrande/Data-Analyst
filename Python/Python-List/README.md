@@ -26,3 +26,13 @@ print(thislist)
 thislist[1:3] = ["banana", "watermelon"]
 print(thislist)
 ```
+
+# Add Any Iterable
+The extend() method does not have to append lists, you can add any iterable object (tuples, sets, dictionaries etc.).
+
+```
+thislist = ["apple", "banana", "cherry"]
+thistuple = ("kiwi", "orange")
+thislist.extend(thistuple)
+print(thislist)
+```
