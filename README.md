@@ -134,3 +134,29 @@ After successful push, remove token from remote for security:
 ```bash
 git remote set-url origin https://github.com/alberthgrande/Data-Analyst.git
 ```
+
+That happens because Android shared storage (`/storage/emulated/0`) is owned differently than normal Linux folders, and Git treats it as “dubious ownership”.
+
+Add the folder as safe:
+
+```bash id="sx8v9a"
+git config --global --add safe.directory /storage/emulated/0/Data-Analyst
+```
+
+Then rename the branch again:
+
+```bash id="f5k1mz"
+git branch -M master
+```
+
+Or if you prefer the modern default:
+
+```bash id="w7c2qe"
+git branch -M main
+```
+
+You can check with:
+
+```bash id="r4m8dn"
+git branch
+```
