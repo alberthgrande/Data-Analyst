@@ -101,3 +101,21 @@ thislist = ["apple", "banana", "cherry"]
 for i in range(len(thislist)):
   print(thislist[i])
 ```
+
+# List Comprehension
+List comprehension offers a shorter syntax when you want to create a new list based on the values of an existing list.
+
+Example:
+
+Based on a list of fruits, you want a new list, containing only the fruits with the letter "a" in the name.
+
+Without list comprehension you will have to write a for statement with a conditional test inside:
+
+```
+fruitlist = ["apple","banana","cherry","kiwi","mango"]
+newlist = []
+for x in fruitlist:
+    if "a" in x:
+        newlist.append(x)
+print(newlist)
+```
