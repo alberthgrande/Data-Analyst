@@ -70,3 +70,24 @@ for x in [0, 1, 2]:
     # print(x)
     pass
 
+# Loop Through the Index Numbers
+print("\n")
+for x in range(len(fruitlist)):
+    print(fruitlist[x])
+    #print(x)
+   
+# Using a While Loop
+print("\n")
+i = 0
+while i < len(fruitlist):
+            print(fruitlist[i])   
+            i = i + 1 
+
+# Looping Using List Comprehension
+print("\nLooping Using List Comprehension")
+[print(x) for x in fruitlist]       
+                    
+                              
+                                        
+                                                            
+                    
