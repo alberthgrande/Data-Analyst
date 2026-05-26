@@ -90,3 +90,14 @@ for loops cannot be empty, but if you for some reason have a for loop with no co
 for x in [0, 1, 2]:
   pass
 ```
+
+# Loop Through the Index Numbers
+You can also loop through the list items by referring to their index number.
+
+Use the range() and len() functions to create a suitable iterable.
+
+```
+thislist = ["apple", "banana", "cherry"]
+for i in range(len(thislist)):
+  print(thislist[i])
+```
